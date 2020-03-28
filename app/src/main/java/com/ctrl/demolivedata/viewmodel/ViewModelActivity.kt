@@ -3,6 +3,7 @@ package com.ctrl.demolivedata.viewmodel
 import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.ctrl.demolivedata.MainActivity
 import com.ctrl.demolivedata.R
@@ -17,8 +18,16 @@ class ViewModelActivity :AppCompatActivity() {
         //data = MainActivityDataGenerator()
         data =ViewModelProviders.of(this).get(MainActivityDataGenerator::class.java)
         val myRandomNumber = data.getNumber()
-        tvNumber.text = myRandomNumber
-        Log.i(TAG, "===SET NUMBER")
+
+        myRandomNumber.observe(this,Observer<String> { number ->
+            tvNumber.text = number
+            Log.i(TAG, "===SET NUMBER")
+        })
+        bRandom.setOnClickListener {
+            data.createNumber()
+        }
+
+
     }
 
 
