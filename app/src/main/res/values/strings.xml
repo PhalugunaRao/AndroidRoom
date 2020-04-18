@@ -16,4 +16,9 @@
 
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+
+    <string name="seconds">%d seconds elapsed</string>
+    <string name="location">Location</string>
+    <string name="saved_in_vm">Saved in ViewModel: %s</string>
+    <string name="initial_name">No one</string>
 </resources>
